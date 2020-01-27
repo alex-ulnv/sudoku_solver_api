@@ -47,7 +47,7 @@
 6. Set the API secret key as OS environment variable:<br>
 ```export API_SECRET_KEY=secret```
 7. Point to the `Flask` app:<br>
-```export FLAST_APP=.```
+```export FLASK_APP=.```
 8. Run the server:<br>
 ```flask run```
 
