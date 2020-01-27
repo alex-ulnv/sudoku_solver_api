@@ -153,10 +153,6 @@ def solve_sudoku(current_user):
     except:
         return jsonify({'message' : 'Cannot parse Sudoku board.'})
 
-    # # Make sure it's a valid board
-    # if not SudokuSolver.is_valid_board(data):
-    #     return jsonify({'message' : 'The input is not a valid Sudoku board.'})
-
     sudoku = SudokuSolver(data)
     sudoku.solve()
 
