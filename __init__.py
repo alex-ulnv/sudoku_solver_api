@@ -7,7 +7,6 @@ from .settings import DATABASE_FILE
 
 app = Flask(__name__)
 
-# TODO make this key exportable from the OS
 app.config['SECRET_KEY'] = os.environ['API_SECRET_KEY']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(DATABASE_FILE)
 
