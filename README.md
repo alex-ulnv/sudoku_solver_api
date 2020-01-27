@@ -1,7 +1,7 @@
 # Sudoku Solver API (Entry Task)
 
 ## Assumed Requirements
-* A new user can be registered via `user/register` endpoint, proving a name and a password.
+* A new user can be registered via `user/register` path, proving a name and a password.
 	* If the name already exists, the system will not create a new user, and return the error message.
 * A registered user can login, using `user/login`, and providing the name and the password
 * Logged-in users can:
@@ -36,9 +36,9 @@
 
 ## To run the app
 1. Clone the project:<br>
-```git clone ...```
+```git clone https://github.com/alex-ulnv/sudoku_solver_api.git```
 2. Change directory into the cloned repository:<br>
-```cd ...```
+```cd sudoku_solver_api```
 3. Create virtual environment with Python 3:<br>
 ```python3 -m virtualenv venv```<br>
 4. Activate the virtual environment:<br>
