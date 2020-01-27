@@ -32,7 +32,6 @@
     * This method was selected to nurture the "stateless" property of the API. Having an authentication token allows us to bypass a database call when we are authenticating a user, which in result improves the speed. The downside is that token will be good until it expires, opening a vulnerability that it could be stolen from the user in some way and be used for authentication. However, if stateless property is not critical, we can implement blacklisting of tokens, which will allow us to _invalidate_ a token if the user chooses to logout before the expiration time.
 * Security:
     * We pass in the API secret key as a system environmental variable to avoid it being stored anywhere.
-    * We rely on POST requests as much as possible, since they are not cached by default.
 
 ## To run the app
 1. Clone the project:<br>
