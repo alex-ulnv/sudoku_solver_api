@@ -23,7 +23,7 @@
 ## Design considerations
 * Framework: `Flask`
 	* `Flask` is very lightweight. We do not have a lot of database configurations, and relatively straight forward functionality
-	* `Django` would be the second choice, since it is highly configurable, but many of those configurations may be overkill for the task at hand. Therefore, `Flask` was chosen. Django has a great benefit of being highly scalable. Going with `Flask` will not necessarily be a theat to scalability, as the `Flask` app can always be merged with a `Django` project later.
+	* `Django` would be the second choice, since it is highly configurable, but many of those configurations may be overkill for the task at hand. Therefore, `Flask` was chosen. Django has a great benefit of being highly scalable. Going with `Flask` will not necessarily be a theat to scalability, as a `Flask` app can always be merged with a `Django` project later.
 * Database: `SQLite`
 	* `Flask` comes with a well-integrated connection to `SQLite`. We would like to have a relationship functionality, therefore NoSQL option might not be sufficient. Since we are having only two tables, storing only `String` and `Integer` types, and have only one relation, `SQLite` might have just the right minimum functionality without using much resources.
 * Algorithm for solving the Sudoku:
@@ -62,9 +62,9 @@ Note: you will be issued an access token for 30 minutes by default, you can chan
     1. Get the authentication token<br>
     ```curl -X GET 127.0.0.1:5000/user/login --user bee:12345 > token.json```<br>
     2. If successful, the API will return a token that will be stored in `token.json`<br>
-    Extract this token using regular expression:</br>
+    Extract this token using regular expression:<br>
     ```grep -o '"token":"[^"]*' token.json | grep -o '[^"]*$' > token.txt```
-    3. Load the token into the environment variable:
+    3. Load the token into the environment variable:<br>
     ```export TOKEN=$(cat token.txt)```
 3. Using your favorite text editor, create a file that contains a (not-solved) Sudoku as a 2-D JSON array of integers. Creating this file will help us to avoid extra long commands in the shell. Let's call this file `input.json`. For the simplicity of testing, I have already prepared this file with one Sudoku task.<br>
 You can view it by running:<br>
