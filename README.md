@@ -1,4 +1,4 @@
-# Sudoku Solver API (Entry Task)
+# Sudoku Solver API
 
 ## Assumed Requirements
 * A new user can be registered via `user/register` path, proving a name and a password.
@@ -19,19 +19,6 @@
 * Configurations `settings.py` file allows to specify:
 	* For how long the user will remain authenticated (i.e. token expiration time)
 	* Whether the history of the user should be deleted, when the user is deleted
-
-## Design considerations
-* Framework: `Flask`
-	* `Flask` is very lightweight. We do not have a lot of database configurations, and relatively straight forward functionality
-	* `Django` would be the second choice, since it is highly configurable, but many of those configurations may be overkill for the task at hand. Therefore, `Flask` was chosen. Django has a great benefit of being highly scalable. Going with `Flask` will not necessarily be a theat to scalability, as a `Flask` app can always be merged with a `Django` project later.
-* Database: `SQLite`
-	* `Flask` comes with a well-integrated connection to `SQLite`. We would like to have a relationship functionality, therefore NoSQL option might not be sufficient. Since we are having only two tables, storing only `String` and `Integer` types, and have only one relation, `SQLite` might have just the right minimum functionality without using much resources.
-* Algorithm for solving the Sudoku:
-	* In the work `A study of Sudoku Solving Algorithms.` by Berggren & Nilsson (2012) several Sudoku solving algorithms were compared. Although different algorithms may permorm better under special scenarious (ex. the best-case, or the worst-case), the `backtracking` approach seems to demonstrate the best performance for the average cases. Therefore, this algorithm was selected for the Sudoku solver in this service.
-* Authentication: Access Token
-    * This method was selected to nurture the "stateless" property of the API. Having an authentication token allows us to bypass a database call when we are authenticating a user, which in result improves the speed. The downside is that token will be good until it expires, opening a vulnerability that it could be stolen from the user in some way and be used for authentication. However, if stateless property is not critical, we can implement blacklisting of tokens, which will allow us to _invalidate_ a token if the user chooses to logout before the expiration time.
-* Security:
-    * We pass in the API secret key as a system environmental variable to avoid it being stored anywhere.
 
 ## To run the app
 1. Clone the project:<br>
